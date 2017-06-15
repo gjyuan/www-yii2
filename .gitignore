@@ -1,3 +1,5 @@
+# excluding gitignore in sub folders
+*/.gitignore
 # idea
 /.idea
 */.idea
