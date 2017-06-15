@@ -1,0 +1,6 @@
+# idea
+/.idea
+*/.idea
+*.iml
+local.php
+*.local.php
