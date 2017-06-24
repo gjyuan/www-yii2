@@ -12,7 +12,7 @@
     <meta content="yes" name="apple-touch-fullscreen"/>
     <meta content="telephone=no,email=no" name="format-detection"/>
     <title>链家网</title>
-    <script type="text/javascript">document.domain="lianjia.com"</script>
+    <script type="text/javascript">document.domain="qqyuan.com"</script>
     <link rel="stylesheet" href="{fe static='plugins\bootstrap\css\bootstrap.min.css'}">
     <link rel="stylesheet" href="{fe static='css/base/common.css'}">
     {block name="header"}{/block}

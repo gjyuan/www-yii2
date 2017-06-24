@@ -2,7 +2,7 @@
 function smarty_function_fe($params, &$smarty){
     foreach ($params as $key => $value) {
         switch ($key) {
-            case "static": return "frontend/web";//Yii::$app->fe->feroot($value);
+            case "static": return Yii::$app->fe->feroot($value);
             case "image":
                 $ret = Yii::$app->fe->imgroot($value);
                 if (isset($params["size"])) {

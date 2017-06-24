@@ -13,12 +13,12 @@ require(ROOT_PATH . '/vendor/yiisoft/yii2/Yii.php');
 $config = array(
     'MODULE_MAP' => array(
         'frontend' => array(
-            'host' => "self.gjyuan.com",
+            'host' => "self.qqyuan.com",
             'root' => 'frontend'
         ),
         'backend' => array(
-            'regex' => '',
-            'root' => ''
+            'host' => 'admin.qqyuan.com',
+            'root' => 'backend'
         ),
     )
 );
