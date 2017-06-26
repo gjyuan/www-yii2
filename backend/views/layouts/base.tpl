@@ -5,6 +5,7 @@
     <meta http-equiv=X-UA-Compatible content="IE=edge,chrome=1">
     <title>99远</title>
     <script type="text/javascript">document.domain="qqyuan.com"</script>
+    <link rel="stylesheet" type="text/css" href="{fe static='css\common\common.css'}"/>
     <link rel="stylesheet" type="text/css" href="{fe static='plugins\bootstrap\css\bootstrap.min.css'}"/>
     {block name="header"}{/block}
 </head>
