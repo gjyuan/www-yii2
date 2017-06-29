@@ -116,9 +116,19 @@ class WebApplication extends \yii\web\Application{
             }
             if(empty($newConfig)) continue;
             foreach ($newConfig as $key => $value) {
-                if(isset($config[$key])){
-                    $config[$key] = is_array($value) ? array_merge($config[$key],$value) : $value;
-                }else{
+                if(isset($config[$key])){//config存在这个key则
+                    if(is_array($value)){//合并两层的数组，保证在Common里面的config能应用到application里
+                        foreach($value as $k=>$v){
+                            if(isset($config[$key][$k])){
+                                $config[$key][$k] = is_array($v) ? array_merge($config[$key][$k],$v) : $v;
+                            }else{
+                                $config[$key][$k] = $v;
+                            }
+                        }
+                    }else{
+                        $config[$key] = $value;
+                    }
+                }else{//不存在直接赋值
                     $config[$key] = $value;
                 }
             }
