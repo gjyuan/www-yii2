@@ -10,4 +10,7 @@ class SiteController extends BaseController{
     public function actionTest(){
         phpinfo();
     }
+    public function actionError(){
+        return $this->show("error");
+    }
 }
