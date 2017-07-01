@@ -1,18 +1,25 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
+<!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->
+<!-- BEGIN HEAD -->
 <head>
-    <meta http-equiv=Content-Type content="text/html;charset=utf-8">
-    <meta http-equiv=X-UA-Compatible content="IE=edge,chrome=1">
+    <meta http-equiv=Content-Type content="text/html;charset=utf-8"/>
     <title>99远</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta content="" name="description" />
+    <meta content="" name="author" />
     <script type="text/javascript">document.domain="qqyuan.com"</script>
-    <link rel="stylesheet" type="text/css" href="{fe static='css\common\common.css'}"/>
+    <!-- BEGIN GLOBAL MANDATORY STYLES -->
     <link rel="stylesheet" type="text/css" href="{fe static='plugins\bootstrap\css\bootstrap.min.css'}"/>
+    <link rel="stylesheet" type="text/css" href="{fe static='css/common/base.css'}"/>
+    <link rel="stylesheet" type="text/css" href="{fe static='css/common/common.css'}"/>
+    <link rel="stylesheet" type="text/css" href="{fe static='css/common/uniform.base.css'}"/>
+    <link rel="stylesheet" type="text/css" href="{fe static='css/common/font-awesome.min.css'}"/>
     {block name="header"}{/block}
 </head>
 <body>
-    <div class="content">
-        {block name='content'}{/block}
-    </div>
+    {block name='content'}{/block}
     <script type="text/javascript" src="{fe static='js/common/labjs.min.js'}"></script>
     <script type="text/javascript">
         $LAB.script("{fe static='js/common/jquery.min.js'}").wait()
