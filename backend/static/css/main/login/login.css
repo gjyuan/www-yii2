@@ -16,12 +16,9 @@ Login page
 
 .login .content {
   background-color:#fff; 
-  width: 291px;
+  width: 25%;
   margin: 0 auto; 
-  margin-bottom: 0px;
-  padding: 30px;  
-  padding-top: 20px;  
-  padding-bottom: 15px;  
+  padding: 30px;
 }
 
 .login .content h3 {
@@ -42,7 +39,7 @@ Login page
 }
 
 .login .content .m-wrap {
-  width: 249px;
+  width: 100%;
   border-left: 0 !important;
 }
 

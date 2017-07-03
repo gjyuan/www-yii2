@@ -5,45 +5,46 @@
 {block name="content"}
 <div class="login">
     <div class="logo">
-        <img src="{fe static="css/image/logo-big.png"}" alt="" />
+        <img src="{fe static="css/image/login_logo.png"}" alt="" />
     </div>
     <div class="content">
         <form class="form-vertical login-form" action="index.html">
-            <h3 class="form-title">Login to your account</h3>
+            <h3 class="form-title">用户登录</h3>
             <div class="alert alert-error hide">
                 <button class="close" data-dismiss="alert"></button>
                 <span>Enter any username and password.</span>
             </div>
             <div class="control-group">
-                <label class="control-label visible-ie8 visible-ie9">Username</label>
+                <label class="control-label visible-ie8 visible-ie9">用户名/邮箱</label>
                 <div class="controls">
                     <div class="input-icon left">
                         <i class="icon-user"></i>
-                        <input class="form-control m-wrap" type="text" placeholder="Username" name="username"/>
+                        <input class="form-control m-wrap" type="text" placeholder="用户名/邮箱" name="username"/>
                     </div>
                 </div>
             </div>
             <div class="control-group">
-                <label class="control-label visible-ie8 visible-ie9">Password</label>
+                <label class="control-label visible-ie8 visible-ie9">密码</label>
                 <div class="controls">
                     <div class="input-icon left">
                         <i class="icon-lock"></i>
-                        <input class="form-control m-wrap" type="password" placeholder="Password" name="password"/>
+                        <input class="form-control m-wrap" type="password" placeholder="密码" name="password"/>
                     </div>
                 </div>
             </div>
             <div class="form-actions">
+
                 <label class="checkbox">
-                    <input type="checkbox" name="remember" value="1"/> Remember me
+                   <input class="form-checkbox-input" type="checkbox" name="remember" value="1"/>记住密码
                 </label>
-                <button type="submit" class="btn btn-success pull-right">
-                    Login <i class="m-icon-swapright m-icon-white"></i>
+                <button type="submit" class="btn btn-success btn-sm pull-right">
+                    登录<i class="m-icon-white m-icon-swapright"></i>
                 </button>
             </div>
             <div class="forget-password">
                 <h4>Forgot your password ?</h4>
                 <p>
-                    no worries, click <a href="javascript:;" class="" id="forget-password">here</a>
+                    no worries, click <a href="javascript:void(0);" class="" id="forget-password">here</a>
                     to reset your password.
                 </p>
             </div>

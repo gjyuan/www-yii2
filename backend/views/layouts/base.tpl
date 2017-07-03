@@ -12,10 +12,11 @@
     <script type="text/javascript">document.domain="qqyuan.com"</script>
     <!-- BEGIN GLOBAL MANDATORY STYLES -->
     <link rel="stylesheet" type="text/css" href="{fe static='plugins\bootstrap\css\bootstrap.min.css'}"/>
-    <link rel="stylesheet" type="text/css" href="{fe static='css/common/base.css'}"/>
-    <link rel="stylesheet" type="text/css" href="{fe static='css/common/common.css'}"/>
-    <link rel="stylesheet" type="text/css" href="{fe static='css/common/uniform.base.css'}"/>
     <link rel="stylesheet" type="text/css" href="{fe static='css/common/font-awesome.min.css'}"/>
+    <link rel="stylesheet" type="text/css" href="{fe static='css/common/style.css'}"/>
+    <link rel="stylesheet" type="text/css" href="{fe static='css/common/style-responsive.css'}"/>
+    <link rel="stylesheet" type="text/css" href="{fe static='css/common/default.css'}"/>
+    <link rel="stylesheet" type="text/css" href="{fe static='css/common/uniform.default.css'}"/>
     {block name="header"}{/block}
 </head>
 <body>
