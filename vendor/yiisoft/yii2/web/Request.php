@@ -509,6 +509,36 @@ class Request extends \yii\base\Request
 
         return $this->getQueryParam($name, $defaultValue);
     }
+    public function getInt($name,$defaultValue=0){
+        return (int)$this->get($name,$defaultValue);
+    }
+    public function getInts(array $nameArr){
+        $params = array();
+        foreach($nameArr as $p){
+            if(is_array($p)){
+                $name = $p[0];$default = isset($p[1])?$p[1]:0;
+                $params[] = (int)$this->get($name,$default);
+            }else{
+                $params[] = (int)$this->get($p,0);
+            }
+        }
+        return $params;
+    }
+    public function getString($name,$defaultValue=""){
+        return (string)$this->get($name,$defaultValue);
+    }
+    public function getStrings(array $nameArr){
+        $params = array();
+        foreach($nameArr as $p){
+            if(is_array($p)){
+                $name = $p[0];$default = isset($p[1])?$p[1]:"";
+                $params[] = (string)$this->get($name,$default);
+            }else{
+                $params[] = (string)$this->get($p,"");
+            }
+        }
+        return $params;
+    }
 
     /**
      * Returns the named GET parameter value.

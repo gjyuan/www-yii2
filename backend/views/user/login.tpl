@@ -1,6 +1,6 @@
 {extends file="layouts/base.tpl"}
 {block name="header"}
-    <link rel="stylesheet" type="text/css" href="{fe static='css/main/login/login.css'}"/>
+    <link rel="stylesheet" type="text/css" href="{fe static='css/main/user/login.css'}"/>
 {/block}
 {block name="content"}
 <div class="login">
@@ -8,7 +8,8 @@
         <img src="{fe static="css/image/login_logo.png"}" alt="" />
     </div>
     <div class="content">
-        <form class="form-vertical login-form" action="index.html">
+        <!--用户登录-->
+        <form class="form-vertical login-form">
             <h3 class="form-title">用户登录</h3>
             <div class="alert alert-error hide">
                 <button class="close" data-dismiss="alert"></button>
@@ -19,7 +20,7 @@
                 <div class="controls">
                     <div class="input-icon left">
                         <i class="icon-user"></i>
-                        <input class="form-control m-wrap" type="text" placeholder="用户名/邮箱" name="username"/>
+                        <input class="form-control m-wrap" type="text" placeholder="用户名/邮箱" name="userName" id="userName"/>
                     </div>
                 </div>
             </div>
@@ -28,33 +29,24 @@
                 <div class="controls">
                     <div class="input-icon left">
                         <i class="icon-lock"></i>
-                        <input class="form-control m-wrap" type="password" placeholder="密码" name="password"/>
+                        <input class="form-control m-wrap" type="password" placeholder="密码" name="password" id="password"/>
                     </div>
                 </div>
             </div>
             <div class="form-actions">
-
                 <label class="checkbox">
                    <input class="form-checkbox-input" type="checkbox" name="remember" value="1"/>记住密码
                 </label>
-                <button type="submit" class="btn btn-success btn-sm pull-right">
+                <button type="button" class="btn btn-success btn-sm pull-right" id="login_btn">
                     登录<i class="m-icon-white m-icon-swapright"></i>
                 </button>
             </div>
             <div class="forget-password">
-                <h4>Forgot your password ?</h4>
-                <p>
-                    no worries, click <a href="javascript:void(0);" class="" id="forget-password">here</a>
-                    to reset your password.
-                </p>
-            </div>
-            <div class="create-account">
-                <p>
-                    Don't have an account yet ?&nbsp;
-                    <a href="javascript:;" id="register-btn" class="">Create an account</a>
-                </p>
+                <a href="javascript:void(0)" id="forget-password">忘记密码?</a>
+                <a href="javascript:void(0);" id="register-btn" class="pull-right">注册</a>
             </div>
         </form>
+        <!--用户找回密码-->
         <form class="form-vertical forget-form" action="index.html">
             <h3 class="">Forget Password ?</h3>
             <p>Enter your e-mail address below to reset your password.</p>
@@ -75,6 +67,7 @@
                 </button>
             </div>
         </form>
+        <!--用户注册-->
         <form class="form-vertical register-form" action="index.html">
             <h3 class="">Sign Up</h3>
             <p>Enter your account details below:</p>
@@ -133,7 +126,7 @@
         </form>
     </div>
     <div class="copyright">
-        2013 &copy; Metronic. Admin Dashboard Template.
+        2017 &copy;qqyuan.com.
     </div>
 </div>
 {/block}

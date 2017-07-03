@@ -25,7 +25,8 @@
     <script type="text/javascript">
         $LAB.script("{fe static='js/common/jquery.min.js'}").wait()
             .script("{fe static='plugins/bootstrap/js/tether.min.js'}").wait()
-            .script("{fe static='plugins/bootstrap/js/bootstrap.min.js'}");
+            .script("{fe static='plugins/bootstrap/js/bootstrap.min.js'}")
+            .script("{fe static='js/common/common.js'}").wait();
     </script>
     {widget name="common\widgets\LoadJs"}
     {block name="footer"}{/block}

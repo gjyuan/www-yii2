@@ -6,7 +6,8 @@ class UserController extends BaseController{
     public function actionIndex(){
         echo "user index";
     }
-    public function actionTest(){
-        phpinfo();
+    public function actionLogin(){
+        $this->setScript('login');
+        return $this->show("login");
     }
 }
