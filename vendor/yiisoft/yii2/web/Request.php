@@ -509,37 +509,6 @@ class Request extends \yii\base\Request
 
         return $this->getQueryParam($name, $defaultValue);
     }
-    public function getInt($name,$defaultValue=0){
-        return (int)$this->get($name,$defaultValue);
-    }
-    public function getInts(array $nameArr){
-        $params = array();
-        foreach($nameArr as $p){
-            if(is_array($p)){
-                $name = $p[0];$default = isset($p[1])?$p[1]:0;
-                $params[] = (int)$this->get($name,$default);
-            }else{
-                $params[] = (int)$this->get($p,0);
-            }
-        }
-        return $params;
-    }
-    public function getString($name,$defaultValue=""){
-        return (string)$this->get($name,$defaultValue);
-    }
-    public function getStrings(array $nameArr){
-        $params = array();
-        foreach($nameArr as $p){
-            if(is_array($p)){
-                $name = $p[0];$default = isset($p[1])?$p[1]:"";
-                $params[] = (string)$this->get($name,$default);
-            }else{
-                $params[] = (string)$this->get($p,"");
-            }
-        }
-        return $params;
-    }
-
     /**
      * Returns the named GET parameter value.
      * If the GET parameter does not exist, the second parameter passed to this method will be returned.
@@ -553,6 +522,44 @@ class Request extends \yii\base\Request
         $params = $this->getQueryParams();
 
         return isset($params[$name]) ? $params[$name] : $defaultValue;
+    }
+
+    public function getRequestParams($name,$defaultValue=null){
+        if(empty($name)){
+            return $_REQUEST;
+        }else{
+            return isset($_REQUEST[$name]) ? $_REQUEST[$name] : $defaultValue;
+        }
+    }
+    public function getInt($name,$defaultValue=0){
+        return (int)$this->getRequestParams($name,$defaultValue);
+    }
+    public function getInts(array $nameArr){
+        $params = array();
+        foreach($nameArr as $p){
+            if(is_array($p)){
+                $name = $p[0];$default = isset($p[1])?$p[1]:0;
+                $params[] = (int)$this->getRequestParams($name,$default);
+            }else{
+                $params[] = (int)$this->getRequestParams($p,0);
+            }
+        }
+        return $params;
+    }
+    public function getString($name,$defaultValue=""){
+        return (string)$this->getRequestParams($name,$defaultValue);
+    }
+    public function getStrings(array $nameArr){
+        $params = array();
+        foreach($nameArr as $p){
+            if(is_array($p)){
+                $name = $p[0];$default = isset($p[1])?$p[1]:"";
+                $params[] = (string)$this->getRequestParams($name,$default);
+            }else{
+                $params[] = (string)$this->getRequestParams($p,"");
+            }
+        }
+        return $params;
     }
 
     private $_hostInfo;

@@ -11,10 +11,10 @@ $("#login_btn").click(function () {
     var passwd = $("#password").val();
     Common.cajax("/api/user/userCheck",{userName:userName,passwd:passwd},{
         success: function (data,msg) {
-            alert("success");
+            window.location.href="/";
         },
         error: function (data,msg) {
-            alert("failed");
+            alert(msg);
         }
     })
 });

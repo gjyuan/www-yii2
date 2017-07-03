@@ -1,5 +1,5 @@
 <?php
-namespace common\models;
+namespace common\www;
 use Yii;
 use yii\base\Model;
 use yii\db\Exception;

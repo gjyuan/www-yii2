@@ -16,11 +16,11 @@
                 <span>Enter any username and password.</span>
             </div>
             <div class="control-group">
-                <label class="control-label visible-ie8 visible-ie9">用户名/邮箱</label>
+                <label class="control-label visible-ie8 visible-ie9">用户邮箱</label>
                 <div class="controls">
                     <div class="input-icon left">
                         <i class="icon-user"></i>
-                        <input class="form-control m-wrap" type="text" placeholder="用户名/邮箱" name="userName" id="userName"/>
+                        <input class="form-control m-wrap" type="text" placeholder="用户邮箱" name="userName" id="userName"/>
                     </div>
                 </div>
             </div>
