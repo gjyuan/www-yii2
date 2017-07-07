@@ -8,7 +8,7 @@ $('#register-btn').click(function () {
 });
 $("#login_btn").click(function () {
     var userName = $("#userName").val();
-    var passwd = $("#password").val();
+    var passwd = $("#passWord").val();
     Common.cajax("/api/user/userCheck",{userName:userName,passwd:passwd},{
         success: function (data,msg) {
             window.location.href="/";
