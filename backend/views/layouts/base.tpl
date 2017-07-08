@@ -30,6 +30,7 @@
         ]);
         Common.sysloadJs = Common.merge(Common.sysloadJs,[
             "{fe static='plugins/jquery/js/quick-sidebar.min.js'}",
+            "{fe static='plugins/jquery/js/jquery.slimscroll.min.js'}",
             "{fe static='plugins/bootstrap/js/bootstrap-hover-dropdown.min.js'}",
             "{fe static='plugins/morris/js/morris.min.js'}",
             "{fe static='js/common/layout.min.js'}",

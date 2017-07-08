@@ -24,6 +24,8 @@ var Common = {
         for(var j=0;j<this.sysloadJs.length;j++){
             cmdStr += ".script('"+ this.sysloadJs[j] +"')";
         }
+        this.preloadJS = [];
+        this.sysloadJs = [];
         eval(cmdStr);
     },
     cajax : function (url, data, options) {
