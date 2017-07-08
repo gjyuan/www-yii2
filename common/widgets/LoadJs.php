@@ -5,17 +5,22 @@ use Yii;
 
 class LoadJs extends Widget{
     public $__scripts;
-    public $__load_scripts_by_sort;
+    public $__preloadScripts;
     public function run(){
         $scriptHtml = "";
-        if(!empty($this->__scripts)) {
-            $scriptHtml .= '<script type="text/javascript">$LAB';
-            $scriptHtml .= $this->__load_scripts_by_sort ? '.setOptions({AlwaysPreserveOrder:true})' : "";
-            foreach ($this->__scripts as $script) {
-                $scriptHtml .= ".script('". Yii::$app->fe->feroot($script) ."')";
+        $scriptHtml .= '<script type="text/javascript">var __preloadArr=[],__loadArr=[];';
+        if(!empty($this->__preloadScripts)){
+            foreach($this->__preloadScripts as $preloadScript){
+                $scriptHtml .= '__preloadArr.push("'. Yii::$app->fe->feroot($preloadScript) .'");';
             }
-            $scriptHtml .= '</script>';
         }
+        if(!empty($this->__scripts)) {
+            foreach ($this->__scripts as $script) {
+                $scriptHtml .= "__loadArr.push('". Yii::$app->fe->feroot($script) ."');";
+            }
+        }
+        $scriptHtml .= 'Common.preloadJS = Common.merge(Common.preloadJS,__preloadArr);Common.sysloadJs = Common.merge(Common.sysloadJs,__loadArr);';
+        $scriptHtml .= '</script>';
         echo $scriptHtml;
     }
 }

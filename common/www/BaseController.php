@@ -4,21 +4,29 @@ use Yii;
 use yii\web\Controller;
 class BaseController extends Controller{
     public $layout = false;
+    private $__preloadScripts = [];
     private $__scripts = [];
     private $__load_scripts_by_sort = false;
     private $__tplValues = [];
 
+    /**设置预加载的JavaScript脚本
+     * @param array $preloadScripts
+     */
+    protected function setPreloadScript($preloadScripts=[]){
+        if(empty($preloadScripts)) return;
+        $preloadScripts = $this->__formatScriptPath($preloadScripts);
+        $this->__preloadScripts = array_merge($this->__preloadScripts,$preloadScripts);
+    }
     /**设置关联JavaScript脚本
      * @param array $scripts
-     * @param bool|false $withSort
+     * @param array $preloadScripts
      */
-    protected function setScript($scripts=[],$withSort=false){
+    protected function setScript($scripts=[],$preloadScripts=[]){
         if(empty($scripts)) return;
         $scripts = $this->__formatScriptPath($scripts);
         $this->__scripts = array_merge($this->__scripts,$scripts);
-        $this->__load_scripts_by_sort = $withSort;
+        $this->setPreloadScript($preloadScripts);
     }
-
     /**格式化脚本路径
      * @param array $scripts
      * @return array
@@ -68,7 +76,7 @@ class BaseController extends Controller{
     public function show($view,array $params=[]){
         $params = array_merge($this->__tplValues,$params);
         $params['__scripts'] = $this->__scripts;
-        $params['__load_scripts_by_sort'] = $this->__load_scripts_by_sort;
+        $params['__preloadScripts'] = $this->__preloadScripts;
         return $this->render($view,$params);
     }
 
