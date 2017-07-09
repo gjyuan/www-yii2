@@ -5,7 +5,7 @@
     <link rel="stylesheet" type="text/css" href="{fe static='css/common/darkblue.min.css'}"/>
 {/block}
 {block name="content"}
-    {widget name="common\widgets\Header"}
+    {widget name="backend\widgets\Header"}
 
     <!-- BEGIN HEADER & CONTENT DIVIDER -->
     <div class="clearfix"> </div>
@@ -13,7 +13,7 @@
     <!-- BEGIN CONTAINER -->
     <div class="page-container">
         <!-- BEGIN SIDEBAR -->
-        {widget name="common\widgets\LeftMenu"}
+        {widget name="backend\widgets\LeftMenu"}
         <!-- END SIDEBAR -->
         <!-- BEGIN CONTENT -->
         <div class="page-content-wrapper">
