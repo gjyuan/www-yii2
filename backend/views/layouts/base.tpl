@@ -16,6 +16,8 @@
     <link rel="stylesheet" type="text/css" href="{fe static='plugins/bootstrap/css/bootstrap.min.css'}"/>
     <link rel="stylesheet" type="text/css" href="{fe static='css/common/components.min.css'}"/>
     <link rel="stylesheet" type="text/css" href="{fe static='css/common/plugins.min.css'}"/>
+    <link rel="stylesheet" type="text/css" href="{fe static='css/common/default.min.css'}"/>
+    <link rel="stylesheet" type="text/css" href="{fe static='css/common/layout.min.css'}"/>
     {block name="header"}{/block}
 </head>
 <body class='{$body_class|default:""}'>
