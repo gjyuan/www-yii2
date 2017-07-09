@@ -1,5 +1,5 @@
 {assign var=body_class value="login"}
-{extends file="layouts/base.tpl"}
+{extends file="layouts/nomenu_base.tpl"}
 {block name="header"}
     <link rel="stylesheet" type="text/css" href="{fe static='css/main/user/login.css'}"/>
 {/block}

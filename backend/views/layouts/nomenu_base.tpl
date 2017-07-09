@@ -21,12 +21,7 @@
     {block name="header"}{/block}
 </head>
 <body class='{$body_class|default:""}'>
-    {widget name="backend\widgets\Header"}
-    <div class="clearfix"> </div>
-    <div class="page-container">
-        {widget name="backend\widgets\LeftMenu"}
-        {block name='content'}{/block}
-    </div>
+    {block name='content'}{/block}
     <script type="text/javascript" src="{fe static='js/common/jquery.min.js'}"></script>
     <script type="text/javascript" src="{fe static='js/common/labjs.min.js'}"></script>
     <script type="text/javascript" src="{fe static='js/common/common.js'}"></script>
@@ -41,9 +36,13 @@
             "{fe static='plugins/bootstrap/js/bootstrap-hover-dropdown.min.js'}",
             "{fe static='plugins/morris/js/morris.min.js'}",
             "{fe static='js/common/layout.min.js'}",
+            {*"{fe static='js/main/site/demo.js'}"*}
         ]);
     </script>
     {block name="footer"}{/block}
     {widget name="common\widgets\LoadJs"}
+    <script type="text/javascript">
+        Common.loadJs();
+    </script>
 </body>
 </html>

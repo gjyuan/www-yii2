@@ -1,4 +1,7 @@
 var Common = {
+    init: function () {
+        this.initBreadCrumb();
+    },
     preloadJS:[],
     sysloadJs:[],
     merge: function () {
@@ -77,9 +80,23 @@ var Common = {
                 }
             }
         })
+    },
+    initBreadCrumb: function () {
+        var bread = [],html = "";
+        $(".page-sidebar-menu").find(".active > a > .title").each(function () {
+            bread.push($(this).html());
+        });
+        for(var i=0;i<bread.length;i++){
+            if(i < bread.length-1){
+                html += '<li><a href="#">'+bread[i]+'</a><i class="fa fa-angle-double-right"></i></li>';
+            }else{
+                html += '<li><span>'+bread[i]+'</span></li>';
+            }
+        }
+        $(".page-breadcrumb").html(html);
     }
-
 };
+Common.init();
 ///**
 // * 获取表单变量信息
 // * @param fields

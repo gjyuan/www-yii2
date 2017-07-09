@@ -19,7 +19,7 @@ class LoadJs extends Widget{
                 $scriptHtml .= "__loadArr.push('". Yii::$app->fe->feroot($script) ."');";
             }
         }
-        $scriptHtml .= 'Common.preloadJS = Common.merge(Common.preloadJS,__preloadArr);Common.sysloadJs = Common.merge(Common.sysloadJs,__loadArr);';
+        $scriptHtml .= 'Common.preloadJS = Common.merge(Common.preloadJS,__preloadArr);Common.sysloadJs = Common.merge(Common.sysloadJs,__loadArr);Common.loadJs();';
         $scriptHtml .= '</script>';
         echo $scriptHtml;
     }
