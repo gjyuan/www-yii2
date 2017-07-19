@@ -4,6 +4,24 @@ var Common = {
     },
     preloadJS:[],
     sysloadJs:[],
+    addPreloadJs:function () {
+        for(var i=0;i<arguments.length;i++) {
+            if (this.isArray(arguments[i])) {
+                this.preloadJS = this.merge(this.preloadJS, arguments[i]);
+            } else {
+                this.preloadJS.push(arguments[i]);
+            }
+        }
+    },
+    addSysncJs:function () {
+        for(var i=0;i<arguments.length;i++) {
+            if (this.isArray(arguments[i])) {
+                this.sysloadJs = this.merge(this.sysloadJs, arguments[i]);
+            } else {
+                this.sysloadJs.push(arguments[i]);
+            }
+        }
+    },
     merge: function () {
         var arr = [];
         for(var i=0;i<arguments.length;i++){

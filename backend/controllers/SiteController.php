@@ -8,7 +8,8 @@ class SiteController extends BaseController{
         return $this->show('index');
     }
     public function actionTest(){
-        phpinfo();
+        var_dump(Yii::$app->getSecurity());
+//        phpinfo();
     }
     public function actionError(){
         return $this->show("error");

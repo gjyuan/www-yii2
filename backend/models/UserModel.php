@@ -12,6 +12,18 @@ class UserModel extends BaseModel{
         unset($user['passwd'],$user['salt']);
         return !empty($user) ? $user : [];
     }
+    public function register(array $user){
+        $fields = ['email','password','name','mobile','gender'];
+        $res = $this->insert(['email'=>$user['email'],'password'=>$user['password'],'name'=>$user['name'],'mobile'=>$user['mobile'],'gender'=>$user['gender']]);
+        return $res;
+    }
+
+    /**
+     * @param $email
+     * @param $passwd
+     * @param string $token
+     * @return array
+     */
     public function checkUserPasswd($email,$passwd,$token=""){
         $user = $this->selectOne([['email','=',$email]]);
         if(!empty($user)){

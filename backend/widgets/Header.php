@@ -10,25 +10,25 @@ class Header extends Widget{
         $logo = Yii::$app->fe->feroot('image/logo.png');
         $userHtml = $this->getUserHtml();
         $headerHtml = '<div class="page-header navbar navbar-fixed-top">
-        <div class="page-header-inner ">
-            <div class="page-logo">
-                <a href="index.html"><img src="'.$logo.'" alt="logo" class="logo-default" /> </a>
-                <div class="menu-toggler sidebar-toggler"><span></span></div>
-            </div>
-            <a href="javascript:void(0);" class="menu-toggler responsive-toggler" data-toggle="collapse" data-target=".navbar-collapse"><span></span></a>
-            <div class="top-menu">
-                <ul class="nav navbar-nav pull-right">
-                    '.$messageHtml.'
-                    '.$userHtml.'
-                    <li class="dropdown dropdown-quick-sidebar-toggler">
-                        <a href="javascript:;" class="dropdown-toggle">
-                            <i class="icon-logout"></i>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>';
+                        <div class="page-header-inner ">
+                            <div class="page-logo">
+                                <a href="index.html"><img src="'.$logo.'" alt="logo" class="logo-default" /> </a>
+                                <div class="menu-toggler sidebar-toggler"><span></span></div>
+                            </div>
+                            <a href="javascript:void(0);" class="menu-toggler responsive-toggler" data-toggle="collapse" data-target=".navbar-collapse"><span></span></a>
+                            <div class="top-menu">
+                                <ul class="nav navbar-nav pull-right">
+                                    '.$messageHtml.'
+                                    '.$userHtml.'
+                                    <li class="dropdown dropdown-quick-sidebar-toggler">
+                                        <a href="javascript:void(0);" class="dropdown-toggle">
+                                            <i class="icon-logout"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>';
         echo $headerHtml;
     }
     public function getMessageHtml(){

@@ -31,11 +31,11 @@
     <script type="text/javascript" src="{fe static='js/common/labjs.min.js'}"></script>
     <script type="text/javascript" src="{fe static='js/common/common.js'}"></script>
     <script type="text/javascript">
-        Common.preloadJS = Common.merge(Common.preloadJS,[
+        Common.addPreloadJs([
             "{fe static='plugins/bootstrap/js/bootstrap.min.js'}",
             "{fe static='js/common/app.js'}"
         ]);
-        Common.sysloadJs = Common.merge(Common.sysloadJs,[
+        Common.addSysncJs([
             "{fe static='plugins/jquery/js/quick-sidebar.min.js'}",
             "{fe static='plugins/jquery/js/jquery.slimscroll.min.js'}",
             "{fe static='plugins/bootstrap/js/bootstrap-hover-dropdown.min.js'}",
