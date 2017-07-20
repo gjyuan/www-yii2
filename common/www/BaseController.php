@@ -86,6 +86,9 @@ class BaseController extends Controller{
     public function successResponse($data=[],$msg="",$code=1){
         $this->echoResponse(['code'=>$code,'data'=>$data,'msg'=>$msg]);
     }
+    public function validateParams(array $validateArr){
+
+    }
     /**
      * @param $jsonMixed
      */
