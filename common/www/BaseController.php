@@ -1,5 +1,7 @@
 <?php
 namespace common\www;
+use common\validators\Validate;
+use common\validators\ValidateException;
 use Yii;
 use yii\web\Controller;
 class BaseController extends Controller{
@@ -86,8 +88,25 @@ class BaseController extends Controller{
     public function successResponse($data=[],$msg="",$code=1){
         $this->echoResponse(['code'=>$code,'data'=>$data,'msg'=>$msg]);
     }
-    public function validateParams(array $validateArr){
 
+    /**验证参数
+     * @param array $validateArr
+     * @param bool $isApi
+     * @return bool
+     */
+    public function validateParams(array $validateArr,bool $isApi = true){
+        try{
+            list($result,$error) = Validate::check($validateArr);
+            if($result){
+                return true;
+            }else{
+                $msg = Validate::formatErrorMsg($error);
+                $isApi && $this->failResponse('params validate failed',$msg);
+            }
+        }catch (ValidateException $e){
+            $isApi && $this->failResponse($validateArr,$e->getMessage());
+        }
+        return false;
     }
     /**
      * @param $jsonMixed
@@ -106,5 +125,4 @@ class BaseController extends Controller{
         }
         exit;
     }
-
 }

@@ -1,11 +1,9 @@
 <?php
-namespace common\validate;
-use Yii;
+namespace common\validators;
 use yii\base\DynamicModel;
 use yii\base\Exception;
-use yii\validators\Validator;
 
-class Validate extends Validator {
+class Validate {
     public static function check(array $data)
     {
         try{
@@ -19,6 +17,17 @@ class Validate extends Validator {
         }catch (ValidateException $e){
             return [false,$e->getMessage()];
         }
+    }
+    public static function formatErrorMsg(array $error){
+        $msg = "";
+        foreach($error as $k=>$err){
+            $msg .= "Param:".$k." error:";
+            foreach($err as $num=>$e){
+                $msg .= ($num+1) . '.' . $e;
+            }
+            $msg .= "；";
+        }
+        return $msg;
     }
     private static function generateRules(array $data){
         $rules = [];$attributes=[];

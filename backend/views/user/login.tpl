@@ -62,7 +62,7 @@
             <p class="hint">输入注册信息</p>
             <div class="form-group">
                 <label class="control-label visible-ie8 visible-ie9">邮箱</label>
-                <input class="form-control placeholder-no-fix" type="text" autocomplete="off" placeholder="邮箱" name="r_userName"/>
+                <input class="form-control placeholder-no-fix" type="text" autocomplete="off" placeholder="邮箱" name="r_email"/>
             </div>
             <div class="form-group">
                 <label class="control-label visible-ie8 visible-ie9">密码</label>

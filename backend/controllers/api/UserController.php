@@ -18,15 +18,16 @@ class UserController extends BaseController{
     public function actionRegister()
     {
         $request = Yii::$app->request;
-        list($userName,$password,$rpassword,$name,$mobile) = $request->getStrings(['userName','password','rpassword','name','mobile']);
+        list($email,$password,$rpassword,$name,$mobile) = $request->getStrings(['email','password','rpassword','name','mobile']);
         $gender = $request->getInt('gender',1);
         $validateArr = array(
-            'userName'=>['v'=>$userName,'rs'=>['email','required']],
-            'password'=>['v'=>$password,'r'=>['string',['length'=>[6,20]]]],
+            'email'=>['v'=>$email,'rs'=>['required','email']],
+            'password'=>['v'=>$password,'rs'=>['required',['string',['length'=>[6,20]]]]],
+            'rpassword'=>['v'=>$rpassword,'rs'=>['required',['compare',['compareValue'=>$password]]]],
         );
-        var_dump(Validate::check($validateArr));exit;
-        $user = ['email'=>$userName,'password'=>$password,'name'=>$name,'mobile'=>$mobile,'gender'=>$gender];
-        $userId = UserModel::getInstance()->register($user);
+        $this->validateParams($validateArr);
+        $user = ['email'=>$email,'password'=>$password,'name'=>$name,'mobile'=>$mobile,'gender'=>$gender];
+        $userId = true;//UserModel::getInstance()->register($user);
         $this->successResponse($userId);
     }
 }

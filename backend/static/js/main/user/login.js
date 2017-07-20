@@ -21,11 +21,11 @@ $("#login_btn").click(function () {
 });
 $("#register_btn").click(function () {
     var formData = $(".register-form").serializeArray();
-    var r_userName='',r_passwd = '',r_rpasswd='',r_fullname='',r_mobile='';
+    var r_email='',r_passwd = '',r_rpasswd='',r_fullname='',r_mobile='';
     for(var i=0;i<formData.length;i++){
          eval(formData[i]['name']+"='"+formData[i]['value']+"'");
     }
-    if(r_userName.length>0 && r_fullname)
+    if(r_email.length>0 && r_fullname)
     var r_gender = $("input[name=r_gender]").bootstrapSwitch("state") ? 1 : 2;
     var data = {userName:r_userName,password:r_passwd,rpassword:r_rpasswd,name:r_fullname,gender:r_gender,mobile:r_mobile};
     Common.cajax('/api/user/register',data,{
