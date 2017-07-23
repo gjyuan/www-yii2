@@ -26,6 +26,7 @@ class UserController extends BaseController{
             'rpassword'=>['v'=>$rpassword,'rs'=>['required',['compare',['compareValue'=>$password]]]],
         );
         $this->validateParams($validateArr);
+
         $user = ['email'=>$email,'password'=>$password,'name'=>$name,'mobile'=>$mobile,'gender'=>$gender];
         $userId = true;//UserModel::getInstance()->register($user);
         $this->successResponse($userId);
