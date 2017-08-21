@@ -1,11 +1,13 @@
 <?php
-namespace common\www;
+namespace common\vender\www\models;
+use common\validators\Validate;
+use common\validators\ValidateException;
 use Yii;
 use yii\base\Model;
 use yii\db\Exception;
-abstract class BaseModel extends Model{
+abstract class BaseModel extends Model {
     private static $__model;
-    protected  $__table;
+    protected static $__table;
     private $__transaction;
     private $__cache;
     public function init(){
@@ -18,14 +20,29 @@ abstract class BaseModel extends Model{
         }
         return self::$__model[$class];
     }
-    protected function getDb(){
-        return Yii::$app->db;
-    }
     protected function getTable(){
-        return $this->__table;
+        return self::$__table;
     }
     protected function setTable($table){
-        $this->__table = $table;
+        self::$__table = $table;
+    }
+
+    /**验证参数
+     * @param array $validateArr
+     * @return array
+     */
+    public function validateParams(array $validateArr){
+        try{
+            list($result,$error) = Validate::check($validateArr);
+            if($result){
+                return [true,''];
+            }else{
+                $msg = Validate::formatErrorMsg($error);
+            }
+        }catch (ValidateException $e){
+            return [false,$e->getMessage()];
+        }
+        return [false,$msg];
     }
     /**获取缓存配置存在责处理 主要用来缓存count（*）结果，缓存时间自己控制
      * @return CCache|mixed|null

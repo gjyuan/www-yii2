@@ -1,5 +1,5 @@
 <?php
-namespace common\www;
+namespace common\vender\www\controller;
 use common\validators\Validate;
 use common\validators\ValidateException;
 use Yii;
@@ -8,7 +8,6 @@ class BaseController extends Controller{
     public $layout = false;
     private $__preloadScripts = [];
     private $__scripts = [];
-    private $__load_scripts_by_sort = false;
     private $__tplValues = [];
 
     /**设置预加载的JavaScript脚本

@@ -13,7 +13,7 @@ var Common = {
             }
         }
     },
-    addSysncJs:function () {
+    addJs:function () {
         for(var i=0;i<arguments.length;i++) {
             if (this.isArray(arguments[i])) {
                 this.sysloadJs = this.merge(this.sysloadJs, arguments[i]);
@@ -37,7 +37,7 @@ var Common = {
     isArray:function(o){
         return Object.prototype.toString.call(o)=='[object Array]';
     },
-    loadJs: function () {
+    initJs: function () {
         var cmdStr = "$LAB";
         for(var i=0;i<this.preloadJS.length;i++){
             cmdStr += ".script('"+ this.preloadJS[i] +"').wait()";
@@ -47,6 +47,18 @@ var Common = {
         }
         this.preloadJS = [];
         this.sysloadJs = [];
+        eval(cmdStr);
+    },
+    loadJs: function (jsArr,preloadArr) {
+        jsArr = (typeof jsArr !== 'undefined') && jsArr.length>0 ? (this.isArray(jsArr) ? jsArr : [jsArr]) : [];
+        preloadArr = (typeof preloadArr !== 'undefined') && preloadArr.length>0 ? (this.isArray(preloadArr) ? preloadArr : [preloadArr]) : [];
+        var cmdStr = "$LAB";
+        for(var i=0;i<preloadArr.length;i++){
+            cmdStr += ".script('"+ preloadArr[i] +"').wait()";
+        }
+        for(var i=0;i<jsArr.length;i++){
+            cmdStr += ".script('"+ jsArr[i] +"')";
+        }
         eval(cmdStr);
     },
     cajax : function (url, data, options) {

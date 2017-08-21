@@ -35,7 +35,7 @@
             "{fe static='plugins/bootstrap/js/bootstrap.min.js'}",
             "{fe static='js/common/app.js'}"
         ]);
-        Common.addSysncJs([
+        Common.addJs([
             "{fe static='plugins/jquery/js/quick-sidebar.min.js'}",
             "{fe static='plugins/jquery/js/jquery.slimscroll.min.js'}",
             "{fe static='plugins/bootstrap/js/bootstrap-hover-dropdown.min.js'}",

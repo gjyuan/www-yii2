@@ -1,7 +1,7 @@
 <?php
 namespace common\service;
 
-class EFe {
+class SFe {
     public $feroot;
     public $version ;
     public function feroot($path) {

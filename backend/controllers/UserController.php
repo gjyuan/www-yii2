@@ -1,8 +1,8 @@
 <?php
 namespace backend\controllers;
-use common\www\BaseController;
+use common\vender\www\controller\BaseController;
 use Yii;
-class UserController extends BaseController{
+class UserController extends BaseController {
     public function actionIndex(){
         echo "user index";
     }

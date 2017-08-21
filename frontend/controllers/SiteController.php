@@ -1,9 +1,9 @@
 <?php
 namespace frontend\controllers;
 
-use common\www\BaseController;
+use common\vender\www\controller\BaseController;
 use Yii;
-class SiteController extends BaseController{
+class SiteController extends BaseController {
     /**
      * Displays homepage.
      * @return mixed

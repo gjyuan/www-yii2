@@ -107,7 +107,7 @@
 {/block}
 {block name="footer"}
     <script type="text/javascript">
-        Common.addSysncJs("{fe static='plugins/bootstrap/js/bootstrap-switch.min.js'}");
+        Common.addJs("{fe static='plugins/bootstrap/js/bootstrap-switch.min.js'}");
     </script>
 {/block}
 
