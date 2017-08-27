@@ -27,23 +27,29 @@
         {widget name="backend\widgets\LeftMenu"}
         {block name='content'}{/block}
     </div>
-    <script type="text/javascript" src="{fe static='js/common/jquery.min.js'}"></script>
+    {widget name="common\widgets\LoadJs"}
     <script type="text/javascript" src="{fe static='js/common/labjs.min.js'}"></script>
-    <script type="text/javascript" src="{fe static='js/common/common.js'}"></script>
     <script type="text/javascript">
-        Common.addPreloadJs([
-            "{fe static='plugins/bootstrap/js/bootstrap.min.js'}",
-            "{fe static='js/common/app.js'}"
-        ]);
-        Common.addJs([
-            "{fe static='plugins/jquery/js/quick-sidebar.min.js'}",
-            "{fe static='plugins/jquery/js/jquery.slimscroll.min.js'}",
-            "{fe static='plugins/bootstrap/js/bootstrap-hover-dropdown.min.js'}",
-            "{fe static='plugins/morris/js/morris.min.js'}",
-            "{fe static='js/common/layout.min.js'}",
-        ]);
+        $LAB.script(
+            "{fe static='js/common/jquery.min.js'}",
+            "{fe static='js/common/common.js'}"
+        ).wait(function () {
+            Common.addPreloadJs([
+                "{fe static='plugins/bootstrap/js/bootstrap.min.js'}",
+                "{fe static='js/common/app.js'}"
+            ]);
+            Common.addJs([
+                "{fe static='plugins/jquery/js/quick-sidebar.min.js'}",
+                "{fe static='plugins/jquery/js/jquery.slimscroll.min.js'}",
+                "{fe static='plugins/bootstrap/js/bootstrap-hover-dropdown.min.js'}",
+                "{fe static='plugins/morris/js/morris.min.js'}",
+                "{fe static='js/common/layout.min.js'}"
+            ]);
+            loadTplJs();
+            Common.initJs();
+        });
     </script>
     {block name="footer"}{/block}
-    {widget name="common\widgets\LoadJs"}
+
 </body>
 </html>

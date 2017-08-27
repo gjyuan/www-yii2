@@ -8,7 +8,8 @@ class LoadJs extends Widget{
     public $__preloadScripts;
     public function run(){
         $scriptHtml = "";
-        $scriptHtml .= '<script type="text/javascript">var __preloadArr=[],__loadArr=[];';
+        $scriptHtml .= '<script type="text/javascript">';
+        $scriptHtml .= 'var loadTplJs = function(){ var __preloadArr=[], __loadArr=[];';
         if(!empty($this->__preloadScripts)){
             foreach($this->__preloadScripts as $preloadScript){
                 $scriptHtml .= '__preloadArr.push("'. Yii::$app->fe->feroot($preloadScript) .'");';
@@ -19,7 +20,7 @@ class LoadJs extends Widget{
                 $scriptHtml .= "__loadArr.push('". Yii::$app->fe->feroot($script) ."');";
             }
         }
-        $scriptHtml .= 'Common.addPreloadJs(__preloadArr);Common.addJs(__loadArr);Common.initJs();';
+        $scriptHtml .= 'Common.addPreloadJs(__preloadArr);Common.addJs(__loadArr);}';
         $scriptHtml .= '</script>';
         echo $scriptHtml;
     }
